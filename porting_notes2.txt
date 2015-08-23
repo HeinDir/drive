@@ -1,0 +1,74 @@
+Reverting EuSDK
+Reverting PACE
+/./AAX/PlugIns/NonCore/Eleven/MacBuild/AmpSim.xcodeproj/	- got a lot of mm and cpp files, got new targets and more
+/./ProTools/App/MacBuild/ProTools.xcodeproj/	- heavy overlaps and a lot of added cpp/h files
+/./ProTools/App/MacBuild_App/ProToolsApp.xcodeproj/	- modified, but lightly.
+/./ProTools/DFW/MacBuild/DFW.xcodeproj/	 - GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+/./ProTools/NewFileLibs/REST/RstE_Clients/PTCloud/MacBuild/PTCloud.xcodeproj/ - heavily modified , concern about GCC_PREPROCESSOR_DEFINITIONS = ( _WEBSOCKETPP_NO_CPP11_THREAD_, _WEBSOCKETPP_NO_CPP11_SYSTEM_ERROR_,);	
+/./.../MacBuild/AvidConnect.xcodeproj/	 - reverted - was stranded
+/./.../libwebsockets.xcodeproj/	 - reverted - was stranded
+New libs - libssl.dylib, libcrypto.dylib, PTCloud.framework, DNet.framework, PTW.framework, libDNet Static.a, libPTCloud Static.a
+
+CEF: dev.glvmorev.chromium_libcplusplus2	
+
+src/build/common.gypi:436 - use_custom_libcxx
+src/build/common.gypi:440 - use_system_libcxx
+use_instrumented_libraries - "use_instrumented_libraries=1"
+
+$(OutDir) ${HOME} output_dir <(PRODUCT_DIR)  <(DEPTH)/<(make_clang_dir)/ <!(cd <(DEPTH) && pwd -P)
+
+pwd /Users/hein/Developer/libcxx/external/Google/Chromium/src/third_party/libc++
+
+make_clang_dir /third_party/llvm-build/Release+Asserts/
+
+bin/libc++.dylib'
+
+libc++ and libc++abi are build seperatelly before cef. Don't use builtin GYP project because they sutable only for linux builds not mac
+you should not have SDK 10.8 in you Xcode bundle before you dare to build CEF.
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libc++abi.dylib
+
+/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/Resources/Clang/include/unwind.h
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.1.0/include/unwind.h
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/unwind.h
+
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libc++.dylib
+
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__bit_reference
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ccomplex
+
+
+head -n 1 <(python build/mac/find_sdk.py 10.6 --print_sdk_path)
+
+
+['use_system_libcxx==1', {
+              'target_conditions': [
+                # Only use libc++ when building target for iOS not when building
+                # tools for the host (OS X) as Mac targets OS X SDK 10.6 which
+                # does not support libc++.
+                ['_toolset=="target"', {
+                  'CLANG_CXX_LIBRARY': 'libc++',  # -stdlib=libc++
+                }]
+              ],
+            }],
+
+dev.glvmorev.AAF_ToolKitTS_libCplusplus	
+dev.glvmorev.AAF_Toolkit	
+dev.glvmorev.AAF_Toolkit	
+dev.glvmorev.AAF_Toolkit_libcplusplus	
+dev.glvmorev.Sibelius	
+dev.glvmorev.PT_Inteplay_libcplusplus	
+Interplay_For_ProTools_Yauch - /./muc-server-ipix/Develop_C++/Source/NxNLibrary/nxnlibrary/nxnlibrary.xcodeproj/project.pbxproj:2187 - "-L../../../../../external/boost/stage.lib"
+
+
+SYNC HD Firmware
+DigiTest
+
+
+I have switched AAXLibrary to AAXLibrary_libcpp target in master build and set up DMA_Manager to link against libAAXLibrary_libcpp.a lib
+
+YET TO PORT:
+
+- vstgui4_2 (mentioned /./AAX_SDK/ExamplePlugIns/DemoGain_GUIExtensions/MacBuild/xcode4/DemoGain_VST.xcodeproj/project.pbxproj
+			also in /./AAX_SDK/Extensions/GUI/MacBuild/VST.xcodeproj/project.pbxproj)
