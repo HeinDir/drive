@@ -8,13 +8,6 @@ N0M0ney#N0H0ney
 
 everything is transitory
 
-
-+ explicit type convertion
-+ Adding new files to the project
-+ adapter::fs_executable_name() implemented on Mac
-+ definitions provided to static members
-
-
 GL: 	vpn-kbp.globallogic.com
 AVID:	tewk-vpn.avid.com
 
@@ -54,113 +47,17 @@ http://www.amazon.com/Flamekiss-Ceramic-Nonstick-Innovative-Elegant/dp/B009MAXUI
 горелка для фломбирования
 машина по приготовлению чипсов
 ***
-iPod nano 6th generation ~ 2450 grn
-
-
-***
-сыылочьки:
-https://developer.apple.com/library/mac/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture.html#//apple_ref/doc/uid/TP40010188-CH5-SW2
-http://www.noiroff.ru/main.php?g2_itemId=30&g2_page=1
-http://www.noiroff.ru/main.php?g2_itemId=5311
-
-http://readmanga.me/k___memory_of_red/vol2/9
-***
-Nano 6th
-https://www.google.com.ua/search?q=ipod+6th+generation+%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C+%D0%BA%D0%B8%D0%B5%D0%B2&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:en-US:official&client=firefox-a&channel=sb&gfe_rd=cr&ei=T0XJU9K8K_HH8gfgj4CICA#channel=sb&q=ipod+6th+generation+%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C+%D0%BA%D0%B8%D0%B5%D0%B2&rls=org.mozilla:en-US:official&start=10
-http://ilounge.com.ua/products/apple-ipod-nano-6-16gb-kupit-kiev-odessa-lvov-kharkov-otzyvy
-http://aukro.ua/ipod-nano-6-gen-16gb-i4424478169.html
-http://iok.com.ua/ipod/kupit-apple-ipod-nano-6-pokoleniya
-http://whitebox.com.ua/product/apple-ipod-nano-6g-8gb-pink/
-
-
-
-КТО ЧТО ДЕЛАЕТ
-- Леша занимался тестированием Аналитики
-- Саша М занимается исследованием геолокации + иконками
-- Слава - занимается IO Setups + zoom slider
-- Вова З - IO Setups баги
-- Игорь - занимется IO Setups
-- Сережа - занимается багой по delay comp
-- Женя - проверка иморта из qt файлов
-
-
-
-*****
-ADDED IN YAUCH
-
-AvidConnect
-DNet
-MobileLink
-MSS
-WaveformLink
-Chromium Embedded Framework
-libcef_dll_wrapper
-~CoreData
 
 
 mac address of AirPort:
 54:E4:3A:E7:5D:4B
-https://www.youtube.com/watch?v=btfZYLiMb2M
 http://support.apple.com/kb/HT5566
-
-
-
-void TProToolsPrefsWind::ApplyNewPreferences()
-
-	if ( mLanguageSettingField )
-	{
-		I18N_Utils_Locale locale = mLanguageSettingField->mLanguageSetting;
-		
-		// Update only if explicitly chosen by user -VM
-		if (locale != eI18N_Utils_Locale_Unsupported)
-			I18N_Utils::UpdateLanguageRegistry(mLanguageSettingField->mLanguageSetting);
-	}
-
-dev.glvmorev.aux2 -> t9009134	
-
-
-
-
-
-
-
-
-
 
 ba:8d:12:24:77:00 
 0a:8d:12:42:d1:6a
 3c:07:54:3e:3e:dd
 d2:00:19:59:7d:00
 b8:8d:12:42:d1:6a
-
-
-
-По поводу посмотреть по вечерам. Я сделал небольшую подборку. Разделил её на три категори  - комедийные, Драмы/триллеры, любовные.
-
-Первая категория - комедии. здесь шесть сериалов. раположены они по степени безкрышности юмора начиная с меньшей и заканчивая черной комедией. Тот из них что я тебе хотел посоветовать в такси был "Будни старшеклассников"
-
-1) Госслужащие за работой \ Servant x Service
-2) Working!! TV-1 / Работа!! ТВ-1
-3) Danshi Kokosei no Nichijo / Danshi Koukousei no Nichijou / Daily Lives of High School Boys / Будни старшеклассников
-4) Нищебог же! / Binbougami ga!
-5) Namiuchigiwa no Muromi-san / Пляжные приключения Муроми
-6) Koroshiya-san: The Hired Gun / Господин Убийца
-
-Вторая категория - драммы. Здесь четыре работы. Все кроме "Время Евы" сериалы. По "Брошенная Зайка" был так же снят фильм. Сериалы расположены в порядке от легкой драмы ("Брошенная Зайка") до триллера ("Дневник будущего") 
-
-1) Usagi Drop / Брошенная Зайка
-2) Eve no Jikan Gekijouban / Время Евы
-3) Durarara!! / Дрррр
-4) Дневник будущего / Future Diary / Mirai Nikki
-
-Третья категория - любовные. Здесь три сериала. Я их расположил в поряке накаления страстей т.е. от милого к дарматичному.
-
-1) Midori Days / Дни Мидори
-2) Toradora!
-3) lovely complex
-
-
-А еще провинция которая у меня тогда вылетела из головы носит название "Тоскана" :)
 
 a start point:
 https://www.ifixit.com/Store/Parts/Unibody-Laptop-Dual-Drive/IF107-080-3
@@ -174,36 +71,45 @@ http://roobay.com.ua/ebay/goods/110923685582/
 http://roobay.com.ua/ebay/goods/300558840432/
 http://www.dx.com/ru/p/designer-s-2-5-sata-to-sata-hdd-caddy-for-apple-macbook-pro-more-121002#.VMTYTnbRLu6
 
-
-
-DigiOption installed and AutoSync 0
-
-
-Content (91 MB) of "twk_sharedbuilds/mac/PXFComponents/PXF_SDK.Zip" - ok
-Content (91 MB) of "twk_sharedbuilds/mac/PXFComponents/Cloud_Services_avx2plug-ins_component.pkg" - ok
-Content (61 MB) of "twk_sharedbuilds/win/CCS/Install/Avid_Cloud_Client_Services.exe" - ok
-Content (102 MB) of "twk_sharedbuilds/mac/CCS/Install/CloudClientServicesInstaller.pkg" - ok
-Content (14 MB) of "twk_sharedbuilds/win/PXFComponents/PXF_SDK.zip" - ok
-Content (15 MB) of "twk_sharedbuilds/win/PXFComponents/PXF.msm" - ok
-
-
-
-+ Filter out projects from recent
-+ Check user media settings in prefs window
-+ Dashboard window
-    + Remove top bar and sign in.
-    + Remove Type Selector in Create Tab
-    + Remove Project Tab
-    + Resize the window accordingly.
-	+ Add location selector (similar to Bounce to Disk) and remove the secondary window that allows choosing a location. Display the currently chosen path with at least one line of wrap around.
-	++ This button should be accessible by using the key command Cmd+C (Mac) or Ctrl+C (Win) 
-+ Handle really long paths
-* Check "Create from Venue"
-* Resolve problem with two meaning Cmd+C. First - Copy action, second  - open location picker window. Change combination to Cmd+Opt+C?  
-+ Check on Windows
-+ Make it possible to switch off location picker
-* Handle Japanese long paths
-
-
-
 ありがと　はんかち　はじめまして　てぶる　こにちわ　男　道　手首首手未熟新党日本
+
+/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/ACPI_SMC_PlatformPlugin.kext/Contents/Resources/
+MacBookPro8,2
+
+Yuriy Shevyrov:
+ls -1t | head -n 1 | xargs tail -f
+mantra which opens and tracks last DigiTrace log file if you are currently in Debug/Logs directory
+
+
+Jim West (Avid):
+
+ >>Rel Eng says: daily builds are archived at \\dc-ecarchive\Builds\ProTools\ProTools_First_12.X\12.1.0
+ account created for read access:
+ 
+username: ets
+pw:  etsets
+smb://dc-ecarchive/Builds
+
+Jim West (Avid): a classic password
+
+
+
+Porting of Sibelius option for ProTools to VS2013 by sshapalo
+
+CXXFLAGS="-fvisibility=hidden -DNDEBUG" -enable-shared=false -enable-static=true
+CC=clang CXX=clang++  LDFLAGS=-stdlib=libc++ CXXFLAGS=-stdlib=libc++ WITH_LIBCPLUSPLUS=  ./configure --target=x86_64-apple-darwin12.0.0
+./configure CC=clang CXX=clang++ CXXFLAGS='-stdlib=libc++' LIBS='-lc++'
+
+./configure CC=clang CXX=clang++ CXXFLAGS='-stdlib=libc++ -fvisibility=hidden -DNDEBUG' LIBS='-lc++' -enable-shared=false -enable-static=true --prefix=hein_output
+Notice on ProtocolBuffers rebuilding
+
+
+dev.glvmorev.AAF_Toolkit	
+
+make MACOSX_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk COMPILER=clang++ AAFTARGET=Debug AAFPLATFORM=x86_64Darwin MACOSX_DEPLOYMENT_TARGET=10.8 USER_CFLAGS=-stdlib=libc++ USER_LD_DYN_LIB=-stdlib=libc++
+
+DST_DIR=../../../AAF_cpp_bin/twk_sharedbuilds/mac/AAF_Toolkit/libc++/Debug AAF_DEBUG=debug ./UpdateProTools.sh
+
+
+
+accurev stat -fal -x | sed 's/.*/"&"/' | sort -r | xargs rm -df
