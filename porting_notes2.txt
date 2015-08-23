@@ -68,6 +68,23 @@ DigiTest
 
 I have switched AAXLibrary to AAXLibrary_libcpp target in master build and set up DMA_Manager to link against libAAXLibrary_libcpp.a lib
 
+Porting of Sibelius option for ProTools to VS2013 by sshapalo
+
+CXXFLAGS="-fvisibility=hidden -DNDEBUG" -enable-shared=false -enable-static=true
+CC=clang CXX=clang++  LDFLAGS=-stdlib=libc++ CXXFLAGS=-stdlib=libc++ WITH_LIBCPLUSPLUS=  ./configure --target=x86_64-apple-darwin12.0.0
+./configure CC=clang CXX=clang++ CXXFLAGS='-stdlib=libc++' LIBS='-lc++'
+
+./configure CC=clang CXX=clang++ CXXFLAGS='-stdlib=libc++ -fvisibility=hidden -DNDEBUG' LIBS='-lc++' -enable-shared=false -enable-static=true --prefix=hein_output
+Notice on ProtocolBuffers rebuilding
+
+
+dev.glvmorev.AAF_Toolkit  
+
+make MACOSX_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk COMPILER=clang++ AAFTARGET=Debug AAFPLATFORM=x86_64Darwin MACOSX_DEPLOYMENT_TARGET=10.8 USER_CFLAGS=-stdlib=libc++ USER_LD_DYN_LIB=-stdlib=libc++
+
+DST_DIR=../../../AAF_cpp_bin/twk_sharedbuilds/mac/AAF_Toolkit/libc++/Debug AAF_DEBUG=debug ./UpdateProTools.sh
+
+
 YET TO PORT:
 
 - vstgui4_2 (mentioned /./AAX_SDK/ExamplePlugIns/DemoGain_GUIExtensions/MacBuild/xcode4/DemoGain_VST.xcodeproj/project.pbxproj
