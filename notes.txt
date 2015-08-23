@@ -116,3 +116,323 @@ accurev stat -fal -x | sed 's/.*/"&"/' | sort -r | xargs rm -df
 
 win 172.22.206.229 (kbp1-dhp-f54757)(hein-pc)
 mac 172.22.192.242 (avid-pti-yuki)(hein-mac)
+
+
+* прорубить проход
+* снести стену
+* доска у Инны и Жени
+
+
+dev.glvmorev.PT_Inteplay_libcplusplus	
+
+
+
+order:
+
+
+
+
+1) Z0P80015N - ПК Apple A1481 Mac Pro 3.5GHz 6-Core Intel Xeon E5/32Gb/512Gb SSD/Dual AMD FirePro D500 3Gb = 62166 UAH (6907$) -ETA is the beginning of May
+2) ME294UA/A - Ноутбук Apple A1398 MacBook Pro 15.4" Retina Quad-Core i7 2.3GHz/16GB/512GB SSD/Iris Pro/GT750M 2Gb = 33057.24 UAH (3673$) -is available
+3) MacMinin (please see config in the attachment) = 18774 UAH (2086$) 
+4. accessories
+4.1 Apple Thunderbolt to Gigabit Ethernet Adapter MD463ZM/A= 428 UAH (48$) for 1 unit
+4.2 Apple Thunderbolt to FireWire Adapter MD464ZM/A = 440 UAH (49$) for 1 unit
+4.3 Mini DisplayPort to DVI Adapter MB570Z/B = 450 UAH (50$) for 1 unit
+4.4 Apple Thunderbolt Cable 2m MD861ZM/A = 600 UAH (67$) for 1 unit
+
+and optional for Mac Pro and for Mac Mini
+ 
+MB110RS/B - Клавиатура Apple Keyboard (aluminum) = 750 UAH () for 1 unit
+MB829ZM/A - Мышь Apple A1296 Wireless Magic Mouse=1080 UAH (120$) for 1 unit
+or
+MB112ZM/B - Мышь Apple A1152 Wired Mighty Mouse=730 UAH (81$) for 1 unit 
+5) Sonnet Echo Express III-D = 14400 UAH (1600$) for 1 unit
+
+6) Блок питания Apple 60W MagSafe Power Adapter (for MacBook Pro 13") =1127 UAH (125$) for 1 unit
+
+
+
+
+Aproximate prices:
+
+Mac Pro ~ 6900$
+Sonnet Echo Express III-D ~ 1600$ 
+Wireless Magic Mouse ~ 80$
+Apple Keyboard (aluminum) ~ 60$
+Apple Thunderbolt to FireWire Adapter ~ 50$
+Mini DisplayPort to DVI Adapter ~ 50$
+Apple Thunderbolt Cable 2m ~ 70$
+MacMinin ~ 2080$
+Headphones Sennheiser HD 419 ~ 50$
+Moshi Mini DisplayPort to HDMI Adapter (4K) / Belkin 4K Mini DisplayPort to HDMI Cable~ 60$
+Mackie Big Knob ~ 400$
+
+SSD 120 Gb for Slava
+
+Our needs:
+
+- Wireless Magic Mouse  - 2 units
+- Headphones Sennheiser HD 419 - 3 units
+- Mini DisplayPort to DVI Adapter - 3 units
+- Mini DisplayPort to HDMI Adapter  - 2 units
+- Apple Thunderbolt to FireWire Adapter - 1 unit
+- Mackie Big Knob - 1 unit
+- Big Jack  
+
+
+RockIT_Features-100
+- Build stations: 
+	* 2 Macs (minimum 1)
+	* 3 Win (minimum 2)
+
+- Apple Mac Pro - 2 units (better if we can afford 8) 
+	* Any bought Mac Pro will release computer to use it as a build machine
+
+
+
+	LSD - Win Build 29
+
+
+
+This week we accidentally found that test engineers have problem with big Pro Tools session. The problem is that they don't have enough RAM. As a quick solution we garbed additional memory from build station. I don't know why they were silent when I was asking if they need something, but now they agree
+
+
+00:3e:e1:c1:d3:38
+00:3e:e1:c1:d3:37
+54:e4:3a:f1:e7:95
+f2:00:00:7a:c1:25
+f2:00:00:7a:c1:29
+f2:00:00:7a:c1:24
+f2:00:00:7a:c1:28
+06:e4:3a:f1:e7:95
+2e:0c:22:45:cd:4d
+f2:00:00:7a:c1:21
+f2:00:00:7a:c1:20
+02:3e:e1:1c:05:00
+
+
+
+
+AllowOpenSession 1
+
+
+$(MacBag)/Libs/$(CONFIGURATION) $(MacBag)/../external/boost/stage/lib
+$(MacBag)/Libs/$(CONFIGURATION) $(MacBag)/../external/boost/stage/lib
+
+http://avid-fncstg01.aviddc.avidww.com:96
+
+[12/25/14, 17:29:00] Yuriy Shevyrov: господа для логина рекомендую пользователя test2test.test.com с паролем test2test
+[12/25/14, 17:29:10] Yuriy Shevyrov: ув него есть адрес и имя в отличие от остальных
+[12/25/14, 17:29:26] Yuriy Shevyrov: * пока что все равно работать не будет
+[12/25/14, 17:29:30] Yuriy Shevyrov: завтра будет
+
+
+DigiOptionsFile.txt (не путать с .ack.txt) написать
+PTCloudServer upstream04.devops-int.avid.com
+NotificationsEndPoint wss://upstream04.devops-int.avid.com/notifications
+CloudServiceEndPointURL https://upstream04.devops-int.avid.com
+
+
+config->mTimelineFullSettings.mTrackDisplayMap._M_t._M_impl._M_node_count
+
+
+
+- Updated templates for PT First hack protection
+- Removing temporary files
+- cleaning the code
+- In purpose of hack-protection I added a verification of a XChg_DocumentInfo::mProduct in TProToolsApp::OpenOld. Therefore you will need to have XChg::eProduct_ProToolsFirst as a mProduct value when opening an arbitrary template. If product mismatch is encountered then exception is thrown and open operation is aborted. You may want to set "GeneratePTFirstTemplates" digioption to 1 when creating template in full version of Pro Tools to make it acceptable by Pro Tools First (default value is 0).
+
+
+
+
+Installed Quicktime Codecs | QT_Codec
+Installed AMAP Plugins | AMA_Plugin
+Installed Avid Applications | Avid_App
+Installed Applications | App
+Installed AAX_Plugins | AAX_Plugin
+Enabled MIDI Control Surface and Type | MIDI_Surface
+Graphics Card Details | GPU
+Network card type | NIC
+Connected Audio Devices | Audio_Device
+Connected PCI/Thunderbolt Devices | PCI/Thunderbolt_Device
+Connected USB Devices | USB_Device
+Connected Firewire Devices | Firewire_Device
+Attached HD IO's | HD_IO
+
+
+ps aux |grep Project
+
+
+Apply new product codes - separate for ProTools and ProToolsFirst
+After this change ONLY AppManager older then D3850 (Mac), D3845 (Win) MUST be used.
+
+в общем чтобы загрузить в PT first все плагины то нуня выставить опцию AllowAllPlugInsTempHack
+
+ну шо, ну шо!!!1 алерт! алерт! алерт!
+
+https://drugstore.synapse.com
+
+https://drugstore.synapse.com/wiki/projects/drug_addicted/Drug_addicted.html
+
+smb://drugstore
+
+юзаем GL креденшалсы
+
+
+Puts_R
+Dice 28:37:37:0a:9f:68
+
+
+Max 10:40:f3:99:80:30
+
+[3/4/15, 21:35:45] Steve Braverman: when I enter either of these DNS flush commands in Terminal, I get:
+[3/4/15, 21:35:46] Steve Braverman: steves-mac-pro:~ steveswestmere$ dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+No matching processes were found
+[3/4/15, 21:36:02] Steve Braverman: commands are: sudo killall -HUP mDNSResponder
+[3/4/15, 21:36:09] Steve Braverman: and: dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+
+https://everywhere.avid.com/auth/sso/login/start/auto
+
+
+sSaveSessionCopyForceToNativeType
+PtSess_XChg::eMediaOptions_ForceToNativeFormat
+
+L10N_Networking_MainPlaylists
+L10N_Networking_RegionsAndMedia
+
+
+Hi guys,
+
+There is a list of issues which are not completely green:
+
+IOSetup_CI :
+
+PT-200842 - I/O setup - Round tripping between 12 and 11 has unexpected results with output subpaths
+
+Reopened. As Slava says it needs more general fix, so it's now fixed only for workflow described in the orginal bug.
+
+PT-202270 - Completely overlapping output paths of equal widths should be part of the same output path when restored/imported from a legacy system/session.
+
+Pending Information. Yevgen says that it may be promoted.
+
+PT-202176 - L10N Clipping in I/O setup if "restore from session" option becomes available (All languages except CHS/JPN)
+
+Pending CIT (Not our team)
+
+PT-200296 - Solo PFL mutes right channel
+
+Fixed but there is a question, Yevgen agreed to promote.
+
+
+PTFirst_CI:
+
+PT-202087 - Template selection does not dim when the Name field is in focus.
+
+CIT in progress. No uppdates from Oleksii. The code looks okay.
+
+PT-202352 - The template list should only be big enough to show 6 listings.
+
+The bug is sent to rework. The code may be reverted though it doesn't fix the bug as bottom line of the list is not alligned properly. I can proceed with reverting if you want.
+
+
+The code in both stream are partially reviewd , so I'll finish reviewing at home.
+
+If you agree on promotion I'll proceed after review.
+
+
+//=============================================================
+
+[4/3/15, 21:52:47] Bharath: atremulant+09321@gmail.com
+[4/3/15, 21:52:49] Bharath: Avid1234
+[4/3/15, 21:53:09] Bharath: that is Connor's account with plugins in case you want to use it for debugging
+
+//=============================================================
+
+Rob Majors
+
+PSA: I got tired of repeatedly hunting down stream and workspace 
+inheritance paths in the AccuRev GUI so I wrote a ruby script that 
+will do it for me and create a dot graph of the result. 
+Posted here, in case it is useful to anyone: smb://mv-fs/Users/rmajors/stream_ancestors.rb
+
+//================================================================
+
+DTF_DASHBOARD_DEFAUL_LOC
+PathShorteningMethod
+
+//=============================================================
+
+кстати господа кто хочет поудалять лишнии стремы - вперед команда такая
+accurev chstream -s dev.omoroz.BT -b Stream_Recycle_Bin
+
+(dev.omoroz.BT - это то что удаляем)
+мануал https://avid-ondemand.atlassian.net/wiki/questions/39912059/accurev-best-way-to-delete-unwanted-streams-or-workspaces
+
+//=============================================================
+
+rfayan: Hi Michael, LucidChart is licensed separately.  Raj told me that we purchased a number of licenses, but there isn't an unlimited number.  If you need it, send me an email justification, and I'll work with Raj to get this going.
+
+//=============================================================
+
+//=============================================================
+Allocating memory aligned to cache lines
+
+It would be beneficial to allocate memory aligned to cache lines. If an array is partitioned for more than one thread to operate on, having the sub-array boundaries unaligned to cache lines could lead to performance degradation. Here is an example to allocate memory (double array of size 10) aligned to cache of 64 bytes.
+
+#include <stdlib.h>
+double *foo(void) {
+   double *var;//create array of size 10
+   int     ok;
+ 
+   ok = posix_memalign((void**)&var, 64, 10*sizeof(double));
+ 
+   if(ok != 0)
+     return NULL;
+ 
+   return var;
+}
+//=============================================================
+
+audioFile.mAudioFile.mPointee->mFileLoc.mImpl.px->mFullPath
+(lldb) watchpoint set variable PtSess_FadePreset::mUserPreset.mCrossFadeSettigs.mFadeType
+
+//CAUTION: enum below is persistent, add only to the end.
+
+
+dev.sshapalo.VS2013_porting 
+pt.Boost_for_PT_VS2013_Proting  
+
+
+dev.glvmorev.PT_Inteplay_libcplusplus 
+pt.Interplay_Asset_Management_ProTools  
+
+Hi Stephen!
+
+Yes there are a few changes. We added some missing headers and changed project files. Also as you remember we've switched to general boost. These changes were promoted to Interplay_For_ProTools_Yauch. Surprisingly pt.Interplay_Asset_Management_ProTools hangs off of the Interplay_For_Montrose but not Interplay_For_ProTools_Yauch. I think somebody already thought about ProTools 11.X. 
+
+I think we could use already time-ruled Interplay_For_Montrose stream in our favor and just create a new path-through stream for ProTools 12. Does it sounds like a good plan?
+
+NxNThreadUnix.cpp  - pthread_t error fix
+nxnmdk, ProToolsForWorkgroup and nxnlibrary - XCode6 porting
+NxNCriticalSectionUnix.h, platform.h - missing include
+NxNLibrary.h - spacing issue
+nxnmdk, nxnlibrary and ProToolsForWorkgroup - porting to libc++
+NxNLibraryVC100, NXNMDKVC100 and ProToolsForWorkgroupVC100 - switch to general boost on windows
+NxNSTLAllocatorWin32.h - porting to VS2013 
+
+accurev stat -fal -x | sed 's/.*/"&"/' | sort -r | xargs rm -df
+
+
+
+
+TCommandManager::Enable(cCreateFades, xFadeReady && !browserIsActive && !midiEventListActive);
+
+
+fileLoc.mImple.px->mFullPath
+GetStdFullPath()
+
+
+ConstructPath(eDomain_Default);
+
+@Vova, please confirm whether RockIT is testing/has tested Fades on the NHK features stream after your merge.
