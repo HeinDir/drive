@@ -113,3 +113,6 @@ DST_DIR=../../../AAF_cpp_bin/twk_sharedbuilds/mac/AAF_Toolkit/libc++/Debug AAF_D
 
 
 accurev stat -fal -x | sed 's/.*/"&"/' | sort -r | xargs rm -df
+
+win 172.22.206.229 (kbp1-dhp-f54757)(hein-pc)
+mac 172.22.192.242 (avid-pti-yuki)(hein-mac)
