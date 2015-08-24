@@ -29,7 +29,7 @@ IF not exist "%TEMP_FILE%" GOTO :REPORT_ERROR "Temp file cannot be created!" || 
 ECHO Temp file: %TEMP_FILE%
 
 REM Get list of files from AccuRev
-ACCUREV stat %CLEAN_MODE% -fla > "%TEMP_FILE%" 
+ACCUREV stat %CLEAN_MODE% -fla > "%TEMP_FILE%"
 
 SET /A NUM_FILES=0
 FOR /f "delims=" %%i IN (%TEMP_FILE%) DO SET /A NUM_FILES+=1
@@ -40,9 +40,12 @@ IF "%NUM_FILES%" equ "0" CALL :REPORT_ERROR "No files to process!" || GOTO :ERRO
 rem subl %TEMP_FILE%
 
 REM Sort AccuRev output
-SORT /r "%TEMP_FILE%"
+SORT /r "%TEMP_FILE%" /o "%TEMP_FILE%"
 
 rem subl %TEMP_FILE%
+
+REM Remove offending attributes
+FOR /f "delims=" %%i IN (%TEMP_FILE%) DO  ATTRIB -r -s -h -a "%%i"
 
 REM Remove files
 FOR /f "delims=" %%i IN (%TEMP_FILE%) DO IF exist "%%i" ( ERASE /f /q "%%i" )
@@ -51,11 +54,11 @@ REM Remove directories
 FOR /f "delims=" %%i IN (%TEMP_FILE%) DO  IF exist "%%i\" ( RMDIR /q "%%i" ) 
 
 REM Get list of lefovers from AccuRev
-ACCUREV stat %CLEAN_MODE% -fla > "%TEMP_FILE%" 
+ACCUREV stat %CLEAN_MODE% -fla > "%TEMP_FILE%"
 
 SET /A NUM_FILES=0
 FOR /f "delims=" %%i IN (%TEMP_FILE%) DO SET /A NUM_FILES+=1
-ECHO Files to left: %NUM_FILES%
+ECHO Files left: %NUM_FILES%
 
 
 GOTO :END
@@ -73,5 +76,5 @@ CALL :REMOVE_TEMP_FILE
 EXIT /b 1
 
 :END
-CALL :REMOVE_TEMP_FILE
+rem CALL :REMOVE_TEMP_FILE
 EXIT /b 0
