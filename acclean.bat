@@ -22,10 +22,10 @@ SET DATE_TIME_STRING=%DTS:~0,4%-%DTS:~4,2%-%DTS:~6,2%_%DTS:~8,2%-%DTS:~10,2%-%DT
 SET TEMP_FILE=%TEMP%\ACCLEAN_%DATE_TIME_STRING%.tmp
 
 REM Create temp file
-IF exist "%TEMP_FILE%" GOTO :ERROR "Temp file already exist!" ||  EXIT /B 1
+IF exist "%TEMP_FILE%" GOTO :REPORT_ERROR "Temp file already exist!" ||  GOTO :ERROR
 
 COPY NULL > "%TEMP_FILE%"
-IF not exist "%TEMP_FILE%" GOTO :ERROR "Temp file cannot be created!" ||  EXIT /B 1
+IF not exist "%TEMP_FILE%" GOTO :REPORT_ERROR "Temp file cannot be created!" || GOTO :ERROR
 ECHO Temp file: %TEMP_FILE%
 
 REM Get list of files from AccuRev
@@ -35,7 +35,7 @@ SET /A NUM_FILES=0
 FOR /f "delims=" %%i IN (%TEMP_FILE%) DO SET /A NUM_FILES+=1
 ECHO Files to process: %NUM_FILES%
 
-IF "%NUM_FILES%" equ "0" CALL :ERROR "No files to process!" ||  EXIT /B 1
+IF "%NUM_FILES%" equ "0" CALL :REPORT_ERROR "No files to process!" || GOTO :ERROR
 
 rem subl %TEMP_FILE%
 
@@ -60,9 +60,18 @@ ECHO Files to left: %NUM_FILES%
 
 GOTO :END
 
-:ERROR
+:REPORT_ERROR
 echo An error happened. Reason: %1
-EXIT /B 1
+EXIT /b 1
+
+:REMOVE_TEMP_FILE
+IF exist "%TEMP_FILE%" ERASE /f /q "%TEMP_FILE%"
+EXIT /b 0
+
+:ERROR
+CALL :REMOVE_TEMP_FILE
+EXIT /b 1
 
 :END
-
+CALL :REMOVE_TEMP_FILE
+EXIT /b 0
