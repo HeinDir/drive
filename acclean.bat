@@ -6,12 +6,27 @@ REM Volodymyr Morev
 
 REM input parameters
 rem echo %1
-SET CLEAN_MODE=x
-IF /I "%1" EQU "/c" SET CLEAN_MODE=c
-IF /I "%1" EQU "/x" SET CLEAN_MODE=x
+SET CLEAN_MODE=-x
+IF /I "%1" EQU "/c" SET ONLY_COUNT=YES
+IF /I "%2" EQU "/c" SET ONLY_COUNT=YES
+IF /I "%1" EQU "/x" SET CLEAN_MODE=-x
+IF /I "%2" EQU "/x" SET CLEAN_MODE=-x
+IF /I "%1" EQU "/m" SET CLEAN_MODE=-m
+IF /I "%2" EQU "/m" SET CLEAN_MODE=-m
 
-IF "%CLEAN_MODE%" EQU "x" ECHO Mode: clean all externals
-IF "%CLEAN_MODE%" EQU "c" ECHO Mode: only calculate num. of externals
+SET MODE_MESSAGE=Mode:
+
+IF /I "%ONLY_COUNT%" EQU "YES" (SET MODE_MESSAGE=%MODE_MESSAGE% Count all) ELSE (SET MODE_MESSAGE=%MODE_MESSAGE% Remove all)
+IF /I "%CLEAN_MODE%" EQU "-x" (SET MODE_MESSAGE=%MODE_MESSAGE% externals)
+IF /I "%CLEAN_MODE%" EQU "-m" (SET MODE_MESSAGE=%MODE_MESSAGE% modified)
+
+ECHO %MODE_MESSAGE%
+
+REM Set path format according to selected Mode
+SET PATH_FORMAT=-fla
+IF /I "%CLEAN_MODE%" EQU "-x" (SET PATH_FORMAT=-fla)
+IF /I "%CLEAN_MODE%" EQU "-m" (SET PATH_FORMAT=-fl)
+
 
 REM Generating date and time string for unique file name
 REM See http://stackoverflow.com/q/1642677/1143274
@@ -28,17 +43,19 @@ IF not exist "%TEMP_FILE%" GOTO :REPORT_ERROR "Temp file cannot be created!" || 
 ECHO Temp file: %TEMP_FILE%
 
 REM Get list of files from AccuRev
-ACCUREV stat -x -fla > "%TEMP_FILE%"
+ACCUREV stat %CLEAN_MODE% %PATH_FORMAT% > "%TEMP_FILE%"
 
 SET /A NUM_FILES=0
 FOR /f "delims=" %%i IN (%TEMP_FILE%) DO SET /A NUM_FILES+=1
 ECHO Files to process: %NUM_FILES%
 
-IF /I "%CLEAN_MODE%" EQU "c" GOTO :END
+IF /I "%ONLY_COUNT%" EQU "YES" GOTO :END
 
 IF "%NUM_FILES%" equ "0" CALL :REPORT_ERROR "No files to process!" || GOTO :ERROR
 
 rem subl %TEMP_FILE%
+
+IF /I %CLEAN_MODE% EQU "-m" GOTO :MODIFIED
 
 REM Sort AccuRev output
 SORT /r "%TEMP_FILE%" /o "%TEMP_FILE%"
@@ -54,8 +71,17 @@ FOR /f "delims=" %%i IN (%TEMP_FILE%) DO IF exist "%%i" ( ERASE /f /q "%%i" )
 REM Remove directories
 FOR /f "delims=" %%i IN (%TEMP_FILE%) DO  IF exist "%%i\" ( RMDIR /q "%%i" ) 
 
+GOTO :FINISH
+
+:MODIFIED
+
+REM Use AccuRev Purge to remove modified
+ACCUREV purge -l %TEMP_FILE%
+
+:FINISH
+
 REM Get list of lefovers from AccuRev
-ACCUREV stat -x -fla > "%TEMP_FILE%"
+ACCUREV stat %CLEAN_MODE% %PATH_FORMAT% > "%TEMP_FILE%"
 
 SET /A NUM_FILES=0
 FOR /f "delims=" %%i IN (%TEMP_FILE%) DO SET /A NUM_FILES+=1
