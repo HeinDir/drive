@@ -197,6 +197,5 @@ GetStdFullPath()
 win 172.22.206.229 (kbp1-dhp-f54757)(hein-pc)
 mac 172.22.192.242 (avid-pti-yuki)(hein-mac)
 
-FOR /F "delims=" %i IN ('sort /r c:\Users\hein\Desktop\hist.txt') DO IF exist %i\ ( rmdir /q %i ) ELSE IF exist %i ( erase /f /q %i ) ELSE ( echo  %i -- not found)
 
 Cfd_ImportAudioCustomView
