@@ -6,13 +6,12 @@ REM Volodymyr Morev
 
 REM input parameters
 rem echo %1
-SET CLEAN_MODE=-x
-IF /I "%1" EQU "/m" echo Implement cleaning of modified!
-IF /I "%1" EQU "/a" echo Implement cleaning of all!
-IF /I "%1" EQU "/x" SET CLEAN_MODE=-x
+SET CLEAN_MODE=x
+IF /I "%1" EQU "/c" SET CLEAN_MODE=c
+IF /I "%1" EQU "/x" SET CLEAN_MODE=x
 
-IF "%CLEAN_MODE%" EQU "-x" ECHO Mode: clean all externals
-IF "%CLEAN_MODE%" EQU "-m" ECHO Mode: revert all modified
+IF "%CLEAN_MODE%" EQU "x" ECHO Mode: clean all externals
+IF "%CLEAN_MODE%" EQU "c" ECHO Mode: only calculate num. of externals
 
 REM Generating date and time string for unique file name
 REM See http://stackoverflow.com/q/1642677/1143274
@@ -29,11 +28,13 @@ IF not exist "%TEMP_FILE%" GOTO :REPORT_ERROR "Temp file cannot be created!" || 
 ECHO Temp file: %TEMP_FILE%
 
 REM Get list of files from AccuRev
-ACCUREV stat %CLEAN_MODE% -fla > "%TEMP_FILE%"
+ACCUREV stat -x -fla > "%TEMP_FILE%"
 
 SET /A NUM_FILES=0
 FOR /f "delims=" %%i IN (%TEMP_FILE%) DO SET /A NUM_FILES+=1
 ECHO Files to process: %NUM_FILES%
+
+IF /I "%CLEAN_MODE%" EQU "c" GOTO :END
 
 IF "%NUM_FILES%" equ "0" CALL :REPORT_ERROR "No files to process!" || GOTO :ERROR
 
@@ -54,7 +55,7 @@ REM Remove directories
 FOR /f "delims=" %%i IN (%TEMP_FILE%) DO  IF exist "%%i\" ( RMDIR /q "%%i" ) 
 
 REM Get list of lefovers from AccuRev
-ACCUREV stat %CLEAN_MODE% -fla > "%TEMP_FILE%"
+ACCUREV stat -x -fla > "%TEMP_FILE%"
 
 SET /A NUM_FILES=0
 FOR /f "delims=" %%i IN (%TEMP_FILE%) DO SET /A NUM_FILES+=1
