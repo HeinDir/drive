@@ -7,6 +7,7 @@ REM Volodymyr Morev
 REM input parameters
 rem echo %1
 SET CLEAN_MODE=-x
+SET ONLY_COUNT=
 IF /I "%1" EQU "/c" SET ONLY_COUNT=YES
 IF /I "%2" EQU "/c" SET ONLY_COUNT=YES
 IF /I "%1" EQU "/x" SET CLEAN_MODE=-x
