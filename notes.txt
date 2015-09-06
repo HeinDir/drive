@@ -186,7 +186,13 @@ double *foo(void) {
    return var;
 }
 //=============================================================
-
+avid.todd.russell: 
+https://avid-ondemand.atlassian.net/wiki/display/CRDS/Satin+Users+Documentation
+http://satindriver.global.avidww.com/install3/install.htm
+http://satindriver.global.avidww.com/Main.aspx
+any questions feel free to email satin help
+Maxime Lanoue: FYI on Win8, there is an extra UAC setting to turn off manually in the regedit
+//==================================================================
 
 accurev stat -fal -x | sed 's/.*/"&"/' | sort -r | xargs rm -df
 
