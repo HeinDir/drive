@@ -205,3 +205,25 @@ mac 172.22.192.242 (avid-pti-yuki)(hein-mac)
 
 
 Cfd_ImportAudioCustomView
+
+//===================================================================
+[9/2/15, 01:14:23] Stephen Wilson: pitch fork says Ted
+[9/2/15, 01:14:31] Stephen Wilson: needs to be removed
+[9/2/15, 01:15:26] Stephen Wilson: here is how you get an access token for upstream31
+[9/2/15, 01:15:59] Stephen Wilson: 1) go to https://upstream04.devops-int.avid.com/auth/sso/login/start/auto and log in
+[9/2/15, 01:16:36] Stephen Wilson: 2) go to https://upstream04.devops-int.avid.com/auth/tokens/current
+[9/2/15, 01:17:04] Stephen Wilson: 3) copy the value in "accessToken": "OTEwZmQ5NDktNmIxNS00OTg0LWEyOTAtNTAzNWQxZWYzOWI2",
+[9/2/15, 01:17:26] Stephen Wilson: i.e. OTEwZmQ5NDktNmIxNS00OTg0LWEyOTAtNTAzNWQxZWYzOWI2 in to postman
+
+titania/Avid-Sync/SW/CLOUD_CLIENT_SERVICES_1.3_RELEASE
+
+PTCloudServer upstream31.devops-int.avid.com
+
+sn.BUR_CLOUD_CLIENT_SERVICES_1.3_MACX_1.3.0.4275 just posted to titania
+sn.BUR_CLOUD_CLIENT_SERVICES_1.2_MACX_1.2.1.125  
+
+bonus points for testing on production with a host entry pointing discovery.us-east-1.everywhere.avid.com to 127.0.0.1 (which will force http)
+New CCS 1.2 looking good on Win. Anyone check Mac yet? CCS 1.2.1.125
+[9/5/15, 03:45:49] Thomas Dimuzio: Dave, I’m having trouble finding CCS 1.4
+[9/5/15, 03:46:32] Thomas Dimuzio: i looked in titania/DeliveryServiceInt/but those versions are from March and Feb 2015
+I’ve just found CCS 1.4 at /titania/Avid-Sync/SW/Delivery_Service_Int/
