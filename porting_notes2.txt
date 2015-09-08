@@ -84,3 +84,4 @@ make MACOSX_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.plat
 
 DST_DIR=../../../AAF_cpp_bin/twk_sharedbuilds/mac/AAF_Toolkit/libc++/Debug AAF_DEBUG=debug ./UpdateProTools.sh
 
+PitchShift.vcxproj / PitchShift.xcodeproj
