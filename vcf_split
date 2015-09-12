@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# current scripts splits one multi-contact VCF file into banch of single-contact files
+# The script creates a folder next to the source file and adds all vcards to that folder
+#
+
+echo "AGRG1 (source file) $1"
+SOURCE=$1
+VCARD="NO"
+COUNTER=0
+#FOLDER_NAME=${SOURCE##*/}
+#FOLDER_NAME=${FOLDER_NAME%.*}
+FOLDER_PATH=${SOURCE%.*}
+#echo "$FOLDER_NAME"
+echo "Folder \"$FOLDER_PATH\""
+if [ ! -d "$FOLDER_PATH" ]; then 
+	mkdir "$FOLDER_PATH"
+fi
+if [ ! -d "$FOLDER_PATH" ]; then 
+	echo "Can't creat folder - $FOLDER_PATH"
+	exit 1
+fi
+
+FILE_PATH=""
+while IFS='' read -r line || [[ -n "$line" ]]; do
+    #echo ">$line"
+    # find start of the VCARD
+    if [[ $line == BEGIN\:VCARD* ]]; then
+    	VCARD="YES"
+    	COUNTER=$[$COUNTER + 1]
+    	FILE_PATH="$FOLDER_PATH/$COUNTER.vcf"
+    	touch "$FILE_PATH"
+    fi
+    # # find end of the VCARD
+    # if [[ $line == END\:VCARD* ]]; then
+    # 	VCARD="NO"
+    # 	FILE_PATH=""
+    # fi
+    # write the VCARD
+    if [[ "$VCARD" == "YES" ]]; then
+    	echo "$line" >> "$FILE_PATH"
+    fi
+done < "$SOURCE"
+
+if ! find "$FOLDER_PATH" -mindepth 1 -print -quit | grep -q .; then
+	echo "Cleaning up..."
+	rmdir "$FOLDER_PATH"
+fi
+
+echo "$COUNTER Contacts"
