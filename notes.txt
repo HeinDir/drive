@@ -196,6 +196,8 @@ Maxime Lanoue: FYI on Win8, there is an extra UAC setting to turn off manually i
 
 accurev stat -fal -x | sed 's/.*/"&"/' | sort -r | xargs rm -df
 
+accurev show wspaces | grep ".*hein\.local.*" | sed s/\ .*$// | xargs -I % accurev chws -w % -m hein-mac.local
+
 
 fileLoc.mImple.px->mFullPath
 GetStdFullPath()
