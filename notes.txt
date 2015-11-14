@@ -229,3 +229,6 @@ New CCS 1.2 looking good on Win. Anyone check Mac yet? CCS 1.2.1.125
 [9/5/15, 03:45:49] Thomas Dimuzio: Dave, I’m having trouble finding CCS 1.4
 [9/5/15, 03:46:32] Thomas Dimuzio: i looked in titania/DeliveryServiceInt/but those versions are from March and Feb 2015
 I’ve just found CCS 1.4 at /titania/Avid-Sync/SW/Delivery_Service_Int/
+
+accunext catch is located in ~/.gradle
+put .acignore file containing "*" (no quotes) into directori in which an artifact is unpacked
