@@ -229,3 +229,6 @@ New CCS 1.2 looking good on Win. Anyone check Mac yet? CCS 1.2.1.125
 [9/5/15, 03:45:49] Thomas Dimuzio: Dave, I’m having trouble finding CCS 1.4
 [9/5/15, 03:46:32] Thomas Dimuzio: i looked in titania/DeliveryServiceInt/but those versions are from March and Feb 2015
 I’ve just found CCS 1.4 at /titania/Avid-Sync/SW/Delivery_Service_Int/
+
+[2/12/2015 11:04:48 PM] Stephen Wilson: https://splunk.devops-int.avid.com/en-US/app/search/search?q=search%20host%3Dsnd3-cld02*%207f57e1c8-c64b-4251-bfc8-4f637074a935&earliest=&latest=&display.page.search.tab=events&sid=1423775062.600
+[2/12/2015 11:05:00 PM] Stephen Wilson: login:user pass Avid123
