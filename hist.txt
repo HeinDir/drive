@@ -1,0 +1,40 @@
+DAW_eKeyCode_NumPad_Multiply 
+	cRecallPendingWindowConfig
+	cEnterMainCounterField
+DAW_eKeyCode_NumPad_Add
+	cNudgeSelectionLaterByGrid
+	cNudgeClipGainRight
+	cNudgeRegionLaterByGrid
+	cNudgeRegionContentsLaterByGrid
+	cNudgeRegionStartLaterByGrid
+	cNudgeRegionEndLaterByGrid
+	cNextLargerNudgeValue
+	cNextLargerGridValue
+	cToggleGridDot
+	cSavePendingWindowConfig
+DAW_eKeyCode_NumPad_Subtract
+	cNudgeSelectionEarlierByGrid
+	cNudgeSelectionEarlierByGrid
+	cNudgeClipGainLeft
+	cNudgeRegionEarlierByGrid
+	cNudgeRegionContentsEarlierByGrid
+	cNudgeRegionStartEarlierByGrid
+	cNudgeRegionEndEarlierByGrid
+	cNextSmallerNudgeValue
+	cNextSmallerGridValue
+	cToggleGridTriplet
+DAW_eKeyCode_NumPad_Decimal
+	MSI_KeyboardCommands::eCommandID_ToggleDotted
+	cAbort
+	cSetKeyFocusDot
+	cRecallPendingMemoryLocation
+DAW_eKeyCode_NumPad_Divide
+	cToggleThroughTimeFields
+	cLinkEditAndTimelineSelection 
+DAW_eKeyCode_NumPad_Equals
+	cEnterMainCounterField
+	cShowMixOrEditWindow
+DAW_eKeyCode_NumPad_Enter
+	MSI_KeyboardCommands::eCommandID_NextStep
+	cCreateMemoryLocation
+	cSTMPlay
