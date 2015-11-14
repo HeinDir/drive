@@ -229,3 +229,45 @@ New CCS 1.2 looking good on Win. Anyone check Mac yet? CCS 1.2.1.125
 [9/5/15, 03:45:49] Thomas Dimuzio: Dave, I’m having trouble finding CCS 1.4
 [9/5/15, 03:46:32] Thomas Dimuzio: i looked in titania/DeliveryServiceInt/but those versions are from March and Feb 2015
 I’ve just found CCS 1.4 at /titania/Avid-Sync/SW/Delivery_Service_Int/
+
+
+infected_mushroom.kyiv.avidww.com
+172.22.201.246
+172.22.201.246
+Going to '/Volumes/DATA/Code/159122'
+
+kyiv-build-noach-win
+172.22.201.222
+noach.kyiv.avidww.com
+Going to 'C:\Code\159480'
+
+[10/14/15, 6:10:23 PM] Volodymyr Morev: Can somebody help me get rid of error 
+{
+ "errorSet":
+ {
+  "code":"avid.protools.collaboration/INTERNAL_SERVER_ERROR",
+   "params":
+   {
+     "reason":"Payment required"
+   },
+   "message":"Payment required",
+   <some fields with id>,
+   "status":402
+  }
+}
+[10/14/15, 6:11:10 PM] Volodymyr Morev: I suppose something is wrong with my account, but I'm not sure what
+[10/14/15, 6:42:31 PM] Stephen Wilson: you have ghost projects, you can get around it by creating a new account, or asking cloud ops to fix it. the bug is CPIB-5
+
+to get PTF license -> http://apps.avid.com/ProToolsFirst/
+
+
+aless
+176.104.11.122
+
+//===================================================================================
+[10/30/15, 11:13:14 AM] Rob Majors: Does anyone know: a) What version of EuControl I need for compatibility with latest PT 12.3, and b) Where I can download the installer? It doesn't look like EuControl installers are posted to the normal gold builds locations that I know of.
+[10/30/15, 11:14:25 AM] Rob Majors: (For Artist Series)
+[10/30/15, 11:15:00 AM] kbaranov6: 3.3.2
+[10/30/15, 11:15:03 AM] kbaranov6: \\mv-fs\Eng_Builds\Artist\ReleaseArchives\EUCON 3.3.2\Build
+[10/30/15, 11:16:23 AM] Rob Majors: Perfect, thanks KB!
+//=======================================================================================
