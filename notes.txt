@@ -276,3 +276,46 @@ put .acignore file containing "*" (no quotes) into directori in which an artifac
 
 [2/12/2015 11:04:48 PM] Stephen Wilson: https://splunk.devops-int.avid.com/en-US/app/search/search?q=search%20host%3Dsnd3-cld02*%207f57e1c8-c64b-4251-bfc8-4f637074a935&earliest=&latest=&display.page.search.tab=events&sid=1423775062.600
 [2/12/2015 11:05:00 PM] Stephen Wilson: login:user pass Avid123
+
+
+
+find author PtSess_BinSelection.cpp
+investigate UProToolsDoc.main4.cpp -> TProToolsDoc::FindOfflineMedia (line 4638)
+find author and fix UTriggerSeparate.cpp
+
+if have time fix UPlayListCommand.cpp
+
+investigate UFreezeTracks.cpp
+investigate UpdateFreezeRenderings
+
+fix UATimeView.cpp : 4723 (eViewAction_AlterFadeIn) as done in eViewAction_FadeIn (line 4680)
+
+/*******************************************************************************
+
+Revert /./ProTools/NewFileLibs/FileFormat/WinBuild/FFmt.vcxproj.filters
+Revert /./ProTools/App/Edtr/Edtr_DeltaEdge.cpp
+Revert /./ProTools/App/Edtr/Edtr_Separator.cpp
+Revert /./ProTools/App/Edtr/Edtr_Trimmer.cpp
+
+/********************************************************************************
+
+* explicit constructor of Time_SampleLength
+* Visual Studio projects switched to PlatformToolset v120
+* added missing stl headers 
+* libprotobuf rebuild with VS2013
+* libboost_chrono, date_time and others rebuild with VS2013
+* switching to VS2013 version of PACE libs
+* added explicit type conversion where new standard requires it
+* fixed curl build script to build with VS2013
+* BerlinTests got VS2013 project created
+* removed redefinition of std::max and std::min for Cmn_Int24 (Cmn_Int24.h)
+* SYNCSetup ported to wide chars strings
+* Changing common Xcode config files to include proper CLANG_CXX_LANGUAGE_STANDARD and CLANG_CXX_LIBRARY
+* workaround for Bug 17782 - https://llvm.org/bugs/show_bug.cgi?id=17782 with std::istringstream (DSH_AnyUtils.h)
+* removed old D3D10 headers
+* substituting __gnu_cxx::hash_map with std::unordered_map
+* forcing WINVER=0x0500 for digiSPTIService
+* 
+
+
+/////////// Stopped on letter G
