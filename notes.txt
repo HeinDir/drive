@@ -277,7 +277,17 @@ put .acignore file containing "*" (no quotes) into directori in which an artifac
 [2/12/2015 11:04:48 PM] Stephen Wilson: https://splunk.devops-int.avid.com/en-US/app/search/search?q=search%20host%3Dsnd3-cld02*%207f57e1c8-c64b-4251-bfc8-4f637074a935&earliest=&latest=&display.page.search.tab=events&sid=1423775062.600
 [2/12/2015 11:05:00 PM] Stephen Wilson: login:user pass Avid123
 
+//=========================================================================================
 
+And here's a one-liner to tail the most recent text file in a directory: 
+
+tail -f `ls -d -1 -rt MacBag/Debug/Logs/*.txt | tail -1`  
+
+This is my standard command to launch PT desktop builds: 
+
+open MacBag/Debug/Pro\ Tools.app && sleep 0.2 && tail -f `ls -d -1 -rt MacBag/Debug/Logs/*.txt | tail -1` 
+
+//=========================================================================================
 
 find author PtSess_BinSelection.cpp
 investigate UProToolsDoc.main4.cpp -> TProToolsDoc::FindOfflineMedia (line 4638)
@@ -296,6 +306,11 @@ Revert /./ProTools/NewFileLibs/FileFormat/WinBuild/FFmt.vcxproj.filters
 Revert /./ProTools/App/Edtr/Edtr_DeltaEdge.cpp
 Revert /./ProTools/App/Edtr/Edtr_Separator.cpp
 Revert /./ProTools/App/Edtr/Edtr_Trimmer.cpp
+Revert /./ProTools/DigiPublic/Xcode/GlobalLibraryRelease_iOS.xcconfig
+Revert /./ProTools/DigiPublic/Xcode/GlobalApplication_iOS.xcconfig
+Revert /./ProTools/DigiPublic/Xcode/GlobalApplicationRelease_iOS.xcconfig
+Revert /./ProTools/DFW/WinBuild/prebuild_step_dfw.cmd
+Revert /./ProTools/App/WinBuild_App/ProToolsApp.vcxproj.filters
 
 /********************************************************************************
 
@@ -315,7 +330,24 @@ Revert /./ProTools/App/Edtr/Edtr_Trimmer.cpp
 * removed old D3D10 headers
 * substituting __gnu_cxx::hash_map with std::unordered_map
 * forcing WINVER=0x0500 for digiSPTIService
+* added ability to switch Xcode project SDK property by calling masterbuild target "xcode-sdk-select-10.10" and similar
+* DTools_Shells's initenv.cmd is modified to work with VS2013
+* libEuAPI* and libEuWLnk* rebuild with libc++
+* boost masterbuild target is updated with libc++ and VS2013
+* softwareupdater masterbuild target is switched off
+* unittestpp mastrebuild target is split in two targets - unittestpp (with libc++) and unittestpp.libstdcpp (with stdlibc++) and a new meta-target all.unittestpp is added
+* aaxlibrary masterbuild target is switched to libc++ project 
+* corrected dependencies and msdev's PATH properties of ntl, siblib_guiwindowingqt and siblib_guidrawingqt masterbuild targets
+* fixed dependencies of siblib masterbuild, siblib_guiservices, siblib_utils and siblib_play targets
+* corrected msdev's PATH property of siblib_score, siblib_printer, siblib_music, siblib_musicsupport and siblib_midi_base masterbuil targets
+* completely removed siblib_boost_bits masterbuild target. Siblib is switched to shared boost (like ProTools)
+* nxnlib masterbuld target got its home_win, home_mac and xcode properties fixed
+* nxnmdk masterbuild target got its dependencies and copy scripts fixed
+* MFnd win project switched to VS2013 version of XMP_SDK 
+* Fixed AdditionalIncludeDirectories and other properties of NTL.vcxproj
+* openssl rebuild with VS2013
+* In order to make PTC_MultiCollection class compatible with libc++ we added "T & operator*() const" and  "T * operator->() const" (PTC_Collection.h)
+* PtAAF.vcxproj is switched to VS2013 versions of MXFviaAAF, AAF, AAFIID libs and AAFCOAPI dll
+* PtApp_AudioFileMgr::DeleteCatalogEntry is modified so it can work when SBr_Bin::Get() == NULL (file PtApp_AudioFileMgr.cpp; Code review http://code-collab:8080/ui#review:id=2604)
 * 
-
-
-/////////// Stopped on letter G
+/////////// Stopped on letter P
