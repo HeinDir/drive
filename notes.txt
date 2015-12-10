@@ -311,6 +311,8 @@ Revert /./ProTools/DigiPublic/Xcode/GlobalApplication_iOS.xcconfig
 Revert /./ProTools/DigiPublic/Xcode/GlobalApplicationRelease_iOS.xcconfig
 Revert /./ProTools/DFW/WinBuild/prebuild_step_dfw.cmd
 Revert /./ProTools/App/WinBuild_App/ProToolsApp.vcxproj.filters
+Revert /./ProTools/NewFileLibs/CoreFoundation/MacBuild/CFnd.xcodeproj/project.pbxproj
+Fixed /./ProTools/NewFileLibs/REST/RstE/WinBuild/RstE.vcxproj
 
 /********************************************************************************
 
@@ -319,7 +321,7 @@ Revert /./ProTools/App/WinBuild_App/ProToolsApp.vcxproj.filters
 * added missing stl headers 
 * libprotobuf rebuild with VS2013
 * libboost_chrono, date_time and others rebuild with VS2013
-* switching to VS2013 version of PACE libs
+* switching to VS2013 and libc++ version of PACE libs
 * added explicit type conversion where new standard requires it
 * fixed curl build script to build with VS2013
 * BerlinTests got VS2013 project created
@@ -343,11 +345,13 @@ Revert /./ProTools/App/WinBuild_App/ProToolsApp.vcxproj.filters
 * completely removed siblib_boost_bits masterbuild target. Siblib is switched to shared boost (like ProTools)
 * nxnlib masterbuld target got its home_win, home_mac and xcode properties fixed
 * nxnmdk masterbuild target got its dependencies and copy scripts fixed
-* MFnd win project switched to VS2013 version of XMP_SDK 
+* MFnd project switched to VS2013 and libc++ version of XMP_SDK 
 * Fixed AdditionalIncludeDirectories and other properties of NTL.vcxproj
 * openssl rebuild with VS2013
 * In order to make PTC_MultiCollection class compatible with libc++ we added "T & operator*() const" and  "T * operator->() const" (PTC_Collection.h)
-* PtAAF.vcxproj is switched to VS2013 versions of MXFviaAAF, AAF, AAFIID libs and AAFCOAPI dll
+* PtAAF is switched to VS2013 and libc++ versions of MXFviaAAF, AAF, AAFIID libs and AAFCOAPI dll
 * PtApp_AudioFileMgr::DeleteCatalogEntry is modified so it can work when SBr_Bin::Get() == NULL (file PtApp_AudioFileMgr.cpp; Code review http://code-collab:8080/ui#review:id=2604)
-* 
-/////////// Stopped on letter P
+* In most of the XCode projects we removed explicit setup of "ARCHS", "SDKROOT", "GCC_VERSION", "CLANG_CXX_LANGUAGE_STANDARD", "CLANG_CXX_LIBRARY", "MACOSX_DEPLOYMENT_TARGET" and "ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1" properties and added a reference to common xcconfig file
+* we have removed BOOST_NO_CXX11_RVALUE_REFERENCES macro
+
+/////////// Stopped on letter S
