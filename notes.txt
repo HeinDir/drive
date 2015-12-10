@@ -353,5 +353,7 @@ Fixed /./ProTools/NewFileLibs/REST/RstE/WinBuild/RstE.vcxproj
 * PtApp_AudioFileMgr::DeleteCatalogEntry is modified so it can work when SBr_Bin::Get() == NULL (file PtApp_AudioFileMgr.cpp; Code review http://code-collab:8080/ui#review:id=2604)
 * In most of the XCode projects we removed explicit setup of "ARCHS", "SDKROOT", "GCC_VERSION", "CLANG_CXX_LANGUAGE_STANDARD", "CLANG_CXX_LIBRARY", "MACOSX_DEPLOYMENT_TARGET" and "ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1" properties and added a reference to common xcconfig file
 * we have removed BOOST_NO_CXX11_RVALUE_REFERENCES macro
+* In Sys_PropertyTree.cpp we added separate function with explicit casting of stl pairs because after switching to libc++ pairs are not copied that makes implicit casting impossible
+* 
 
-/////////// Stopped on letter S
+/////////// Stopped on letter T
