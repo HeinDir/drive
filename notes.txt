@@ -302,17 +302,16 @@ fix UATimeView.cpp : 4723 (eViewAction_AlterFadeIn) as done in eViewAction_FadeI
 
 /*******************************************************************************
 
-Revert /./ProTools/NewFileLibs/FileFormat/WinBuild/FFmt.vcxproj.filters
-Revert /./ProTools/App/Edtr/Edtr_DeltaEdge.cpp
-Revert /./ProTools/App/Edtr/Edtr_Separator.cpp
-Revert /./ProTools/App/Edtr/Edtr_Trimmer.cpp
-Revert /./ProTools/DigiPublic/Xcode/GlobalLibraryRelease_iOS.xcconfig
-Revert /./ProTools/DigiPublic/Xcode/GlobalApplication_iOS.xcconfig
-Revert /./ProTools/DigiPublic/Xcode/GlobalApplicationRelease_iOS.xcconfig
-Revert /./ProTools/DFW/WinBuild/prebuild_step_dfw.cmd
-Revert /./ProTools/App/WinBuild_App/ProToolsApp.vcxproj.filters
-Revert /./ProTools/NewFileLibs/CoreFoundation/MacBuild/CFnd.xcodeproj/project.pbxproj
+Reverted /./ProTools/NewFileLibs/FileFormat/WinBuild/FFmt.vcxproj.filters
+Reverted /./ProTools/App/Edtr/Edtr_DeltaEdge.cpp
+Reverted /./ProTools/App/Edtr/Edtr_Separator.cpp
+Reverted /./ProTools/App/Edtr/Edtr_Trimmer.cpp
+Reverted /./ProTools/App/WinBuild_App/ProToolsApp.vcxproj.filters
+Reverted /./ProTools/NewFileLibs/CoreFoundation/MacBuild/CFnd.xcodeproj/project.pbxproj
 Fixed /./ProTools/NewFileLibs/REST/RstE/WinBuild/RstE.vcxproj
+Reverted /./AlturaPorts/NewFileLibs/Time/Time_TypedLength.h
+Reverted /./ProTools/App/Transport_Views/UTransportView.cpp
+Reverted /./ProTools/App/Document/UProjectSyncMgr.cpp
 
 /********************************************************************************
 
@@ -354,6 +353,19 @@ Fixed /./ProTools/NewFileLibs/REST/RstE/WinBuild/RstE.vcxproj
 * In most of the XCode projects we removed explicit setup of "ARCHS", "SDKROOT", "GCC_VERSION", "CLANG_CXX_LANGUAGE_STANDARD", "CLANG_CXX_LIBRARY", "MACOSX_DEPLOYMENT_TARGET" and "ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1" properties and added a reference to common xcconfig file
 * we have removed BOOST_NO_CXX11_RVALUE_REFERENCES macro
 * In Sys_PropertyTree.cpp we added separate function with explicit casting of stl pairs because after switching to libc++ pairs are not copied that makes implicit casting impossible
-* 
+* we had problems with compiling some std::bitset in VS2013 so we substituted them with std::array
+* ProTools was switched to boost 1.58.0
+* Google Breakpad r1460 ported to libc++
+* VSTGUI (both old and 4.2) are ported to libc++
+* DIPC_Lib ported to libc++
+* CEF rebuild with both libc++ and VS2013
+* Rebuild of AAf Toolkit with libc++ and VS2013. We have removed AAF_ToolkitTS folder and substituted it with a cross-link to stream with binaries
+* Rebuild of OpenSSL with VS2013. Right OpenSSL is a bit outdated - now ProTools uses 1.0.1g while already available (in accurev) 1.0.1p.
+* QT 4.8.0 rebuild with libc++ and VS2013. There are notes available for these who dare to rebuild it in \.\external\Trolltech_Qt4\notice_on_rebuilding.txt
+* Sibelius rebuild with libc++ and VS2013
+* ProtocolBuffers v2.6.0 rebuild with libc++ and VS2013
+* Interplay option for ProTools is ported to both libc++ and VS2013
 
-/////////// Stopped on letter T
+/**************************************************************************************************
+
+Notice on porting Pro Tools to libc++ https://avid-ondemand.atlassian.net/wiki/pages/viewpage.action?pageId=50334890

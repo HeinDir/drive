@@ -1,3 +1,7 @@
+Notice on porting Pro Tools to libc++ https://avid-ondemand.atlassian.net/wiki/pages/viewpage.action?pageId=50334890
+
+/**************************************************************************************************
+
 Reverting EuSDK
 Reverting PACE
 /./AAX/PlugIns/NonCore/Eleven/MacBuild/AmpSim.xcodeproj/	- got a lot of mm and cpp files, got new targets and more
