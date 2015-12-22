@@ -300,63 +300,22 @@ investigate UpdateFreezeRenderings
 
 fix UATimeView.cpp : 4723 (eViewAction_AlterFadeIn) as done in eViewAction_FadeIn (line 4680)
 
-/*******************************************************************************
 
-Reverted /./ProTools/NewFileLibs/FileFormat/WinBuild/FFmt.vcxproj.filters
-Reverted /./ProTools/App/Edtr/Edtr_DeltaEdge.cpp
-Reverted /./ProTools/App/Edtr/Edtr_Separator.cpp
-Reverted /./ProTools/App/Edtr/Edtr_Trimmer.cpp
-Reverted /./ProTools/App/WinBuild_App/ProToolsApp.vcxproj.filters
-Reverted /./ProTools/NewFileLibs/CoreFoundation/MacBuild/CFnd.xcodeproj/project.pbxproj
-Fixed /./ProTools/NewFileLibs/REST/RstE/WinBuild/RstE.vcxproj
-Reverted /./AlturaPorts/NewFileLibs/Time/Time_TypedLength.h
-Reverted /./ProTools/App/Transport_Views/UTransportView.cpp
-Reverted /./ProTools/App/Document/UProjectSyncMgr.cpp
+dev.sshapalo.RockIT.forReview
+dev.glvmorev.pt.amphetamine
 
-/********************************************************************************
+ask Yevgen about release party
 
-Hi guys!
+//============================================================================
+[12/22/15, 4:30:07 PM] Yuriy Shevyrov: /Library/Application Support/Avid/Everywhere.json
+[12/22/15, 4:31:38 PM] Yuriy Shevyrov: {
+  "default": {
+    "access": {
+      "everywhere": {
+        "endpoints": "https://upstream31.devops-int.avid.com/endpoints"
+      }
+    }
+  }
+}
 
-Sorry for a big delay there are so many changes were accumulated during these two year on PTModernization_CI so it took me two days to gather everything meanwhile doing critical bug fixing.
-
-* We added explicit constructor of Time_SampleLength class to overcome Visual Studio compilation errors
-* MS Visual Studio projects switched to PlatformToolset v120
-* In most of the XCode projects we removed explicit setup of "ARCHS", "SDKROOT", "GCC_VERSION", "CLANG_CXX_LANGUAGE_STANDARD", "CLANG_CXX_LIBRARY", "MACOSX_DEPLOYMENT_TARGET" and "ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1" properties and added a reference to common xcconfig file
-* We changing common Xcode config files to include proper CLANG_CXX_LANGUAGE_STANDARD and CLANG_CXX_LIBRARY
-* Yuriy added ability to switch Xcode project SDK property by calling masterbuild target "xcode-sdk-select-10.10" and similar (works through symbolic link)
-* A lot of files were missing stl headers, so we added them 
-* Many implicit type conversions were substituted with explicit ones
-* ProTools was switched to boost 1.58.0
-* boost masterbuild target is updated with libc++ and VS2013 properties
-* We have removed BOOST_NO_CXX11_RVALUE_REFERENCES macro
-* ProtocolBuffers v2.6.0 rebuild with libc++ and VS2013
-* Corresponding projects were switched to updated ProtocolBuffers libraries
-* ProTools was switched to VS2013 and libc++ versions of PACE libs
-* libEuAPI* and libEuWLnk* were rebuild with libc++ (Windows side were handled by Eucon team)
-* softwareupdater masterbuild target is switched off
-* SYNCSetup is ported to wide chars strings to build with VS2013
-* BerlinTests got VS2013 project created
-* unittestpp mastrebuild target is split in two targets - unittestpp (with libc++) and unittestpp.libstdcpp (with stdlibc++) and a new meta-target all.unittestpp is added
-* aaxlibrary masterbuild target is switched to libc++ project 
-* Siblib is switched to shared boost (like ProTools) ,  boost_bits is completely removed. 
-* Sibelius rebuild with libc++, VS2013 and updated QT 4.8
-* QT 4.8.0 rebuild with libc++ and VS2013. There are notes available for these who dare to rebuild it in \.\external\Trolltech_Qt4\notice_on_rebuilding.txt
-* MFnd project switched to VS2013 and libc++ version of XMP_SDK 
-* We fixed curl build script to work correctly with VS2013
-* PtAAF is switched to VS2013 and libc++ versions of MXFviaAAF, AAF, AAFIID libs and AAFCOAPI dll
-* Google Breakpad r1460, VSTGUI (both old and 4.2), DIPC_Lib and Interplay option for ProTools are ported to libc++
-* Rebuild of AAf Toolkit with libc++ and VS2013. We have removed AAF_ToolkitTS folder and substituted it with a cross-link to stream with binaries
-* CEF rebuild with both libc++ and VS2013
-* Rebuild of OpenSSL with VS2013. Right now OpenSSL is a bit outdated - now ProTools uses 1.0.1g while already available (in accurev) 1.0.1p.
-* I've corrected dependencies and msdev's PATH properties of ntl and all siblib*  masterbuild targets
-* I've  also fixed various properties of nxnlib and nxnmdk masterbuild target
-* We removed redefinition of std::max and std::min for Cmn_Int24 (Cmn_Int24.h)
-* Added a workaround for Bug 17782 - https://llvm.org/bugs/show_bug.cgi?id=17782 with std::istringstream (DSH_AnyUtils.h)
-* we substituted __gnu_cxx::hash_map with std::unordered_map
-* DTools_Shells's initenv.cmd is modified to work with VS2013
-* Fixed AdditionalIncludeDirectories and other properties of NTL.vcxproj
-* In order to make PTC_MultiCollection class compatible with libc++ we added "T & operator*() const" and  "T * operator->() const" (PTC_Collection.h)
-* PtApp_AudioFileMgr::DeleteCatalogEntry is modified so it can work when SBr_Bin::Get() == NULL (file PtApp_AudioFileMgr.cpp; Code review http://code-collab:8080/ui#review:id=2604)
-* In Sys_PropertyTree.cpp we added separate function with explicit casting of stl pairs because after switching to libc++ pairs are not copied that makes implicit casting impossible
-* Some std::bitset declarations were substituted with std::array because of the compilation problems in Visual Studio 2013
-
+//==================================================================================
