@@ -300,7 +300,6 @@ investigate UpdateFreezeRenderings
 
 fix UATimeView.cpp : 4723 (eViewAction_AlterFadeIn) as done in eViewAction_FadeIn (line 4680)
 
-
 dev.sshapalo.RockIT.forReview
 dev.glvmorev.pt.amphetamine
 
