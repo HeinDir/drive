@@ -1,0 +1,51 @@
+#!/bin/bash
+#echo "AGRG1 (source file) $1"
+SOURCE=$1
+
+COUNT=0
+declare -a DELETED=();
+regex=".*FF_PacketStream\:\:\~FF_PacketStream\((.*)\)\ \-\ .*"
+while IFS='' read -r line || [[ -n "$line" ]]; do
+    #echo ">$line"
+    if [[ $line =~ $regex ]]; then
+    	#echo ">${BASH_REMATCH[1]}"
+    	DELETED[$COUNT]="${BASH_REMATCH[1]}"
+	COUNT=$[$COUNT + 1]
+    fi
+done < "$SOURCE"
+
+echo "DELETED COUNT $COUNT"
+#FOLDER_PATH=${SOURCE%.*}
+#FILE_PATH="./result.txt"
+#echo "$FOLDER_PATH"
+
+#touch "$FILE_PATH"
+
+COUNT=0
+regex=".*FF_PacketStream\:\:FF_PacketStream\((.*)\)\ \-\ .*"
+while IFS='' read -r line || [[ -n "$line" ]]; do
+    #echo ">$line"
+    if [[ $line =~ $regex ]]; then
+    	COUNT=$[$COUNT + 1]
+    	#echo ">${BASH_REMATCH[1]}"
+    	#echo ">$line"
+    	POINTER="${BASH_REMATCH[1]}"
+    	FOUND="NO"
+    	for i in ${!DELETED[@]}; do
+    		#echo ">$i > ${DELETED[$i]} == $POINTER"
+    		if [[ "${DELETED[$i]}" == "$POINTER" ]]; then
+    			#echo ">$POINTER"
+    			FOUND="YES"
+    		fi
+    	done
+    	#echo "$FOUND"
+    	if [[ $FOUND == "NO" ]]; then
+    		echo "$line"
+    		#echo "$line" >> "$FILE_PATH"
+	fi
+    fi
+done < "$SOURCE"
+
+echo "CREATED COUNT $COUNT"
+
+#echo "${DELETED[@]}"

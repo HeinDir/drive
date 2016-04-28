@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -rf ~/Library/Application\ Support/Avid/Pro\ Tools
+rm -rf ~/Library/Preferences/Avid
+echo DONE

@@ -198,6 +198,8 @@ accurev stat -fal -x | sed 's/.*/"&"/' | sort -r | xargs rm -df
 
 accurev show wspaces | grep ".*hein\.local.*" | sed s/\ .*$// | xargs -I % accurev chws -w % -m hein-mac.local
 
+find . -name ".acignore" -print0 | xargs -0 rm -f 
+
 
 fileLoc.mImple.px->mFullPath
 GetStdFullPath()
@@ -318,3 +320,103 @@ ask Yevgen about release party
 }
 
 //==================================================================================
+
+David Sumich
+
+ Ah, my good old friend IndexToReference, so nice to see you again.
+Does anybody know why some MIDI instrument IDs are negative and some are positive? I am looking at a list of IDs that is as such:
+[-32002, -32001, -32000, 32000, 32001, 32003]
+In case anybody else wondered the answer to my question...
+
+const Cmn_Int32 cMidiInstrument_MetronomeID  = -32000; 
+const Cmn_Int32 cMidiInstrument_MidiBeatClockID = -32001; 
+const Cmn_Int32 cMidiInstrument_DefaultThruID = -32002;
+
+//=====================================================================================
+
+Slava Tutyk: 
+that is the xcode’s breakpoints
+ProTools/App/MacBuild/ProToolsWS.xcworkspace/xcuserdata/toosla.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+
+//=====================================================================================
+
+[1/11/16, 8:22:15 AM] Don Edvalson: The lines are:
+assetdelivery.config.udtlimitupload = 4000000000
+assetdelivery.config.udtlimitdownload = 4000000000
+[1/11/16, 8:22:34 AM] Don Edvalson: These go in AssetDelivery.properties
+ to
+//=====================================================================================
+
+[1/22/16, 2:32:37 AM] Paul Vercellotti: Y'all remind me where CCS logs are on Mac?
+[1/22/16, 2:37:58 AM] Paul Vercellotti: /var/log/Avid for future reference
+
+//=======================================================================================
+
+To QAs if you try to launch a fresh PT debug build on windows and fail because there is no MSVCR120D.DLL try this:
+\\172.22.200.100\Projects\Scrum_Teams\pt-239\CRT\launch_pt_12.5_debug
+
+//=======================================================================================
+
+[2/11/16, 2:03:21 PM] Yuriy Shevyrov: DSPTools/dtf_dae_connection_to_dot/readme.txt
+[2/11/16, 2:04:13 PM] Yuriy Shevyrov: SMgr_DelayManager::DumpGraph
+[2/11/16, 2:04:58 PM] Yuriy Shevyrov: SMgr_Graph::ToDotGraphFileLoc - я не осилил именно тут dot
+[2/11/16, 2:05:46 PM] Yuriy Shevyrov: CHostWorkerEngine::GraphWorkerChains - рисует только хостовую часть цепи. лучше втыкни built-in engine
+
+tf_dae_connection_to_dot - Utility can visualize the entire signal	net (all connections) based on DigiTrace logs.
+You have to include DTF_DAE_CONNECTIONS=file@DTP_LOW in	order to use it.
+
+color meanings:
+red - HostToSignalCard signal net
+blue - Host signal net
+orange - Berlin	(HDX) signal net
+
+usage:
+cat digitrace_log_file.log | dtf_dae_connection_to_dot > some_dot_file.dot
+cat some_dot_file.dot | dot -Tsvg > some_svg_file.svg
+
+or
+
+cat digitrace_log_file.log | dtf_dae_connection_to_dot | dot -Tsvg > some_svg_file.svg
+
+dtrace scripts to track utimes calls for all process and for a specific process by pid ... (you can use them as examples as well)
+
+//=======================================================================================
+
+[3/9/16, 3:52:10 AM] Ted Barram: I just promoted a new digioption:
+[3/9/16, 3:52:11 AM] Ted Barram: AutoInvitee 1421a116-af97-4f70-85cb-d1ed84c4d562
+[3/9/16, 3:52:30 AM] Ted Barram: every time you create a new project, PT will automatically invite that user to the new project
+[3/9/16, 3:53:03 AM] Ted Barram: convenient if you’re sick of having to pull up ArtistChat every time
+[3/9/16, 3:53:28 AM] Ted Barram: combine it with AllowInvitationProjectInDashboard 1, and the process is actually quite painless
+
+//=======================================================================================
+
+http://crashlogs/crashlogs
+
+It's vnc://netboot
+user: netboot
+password: etsets
+
+//========================================================================================
+
+
+PTC_N10n_OnNetworkAlive -- response came when we offline
+
+PTC_N10n_OnOffline -- sudden network error
+
+PTC_N10n_OnConnectionLost -- when logging flag changes , mostly UI msg
+PTC_N10n_OnConnectionResumed -- when logging flag changes , mostly UI msg
+
+Sys_Network_N10n_Online - generated in Sys_NetworkNotifier and triggered only in TTrack
+Sys_Network_N10n_Offline - generated in Sys_NetworkNotifier triggers OnSuddenOffline, Track UI and sNetworkOffline of PTW_CloudUtils
+
+const char * cNotificationServiceOfflineEvent = "protools.notificationservice.offline.event"; // L10N_IGNORE_LINE
+
+static const char * cNotificationServiceOfflineEvent ; //VM: as opposed to Ready event
+
+
+0x020000 shift
+0x080000 alt
+0x040000 control
+0x100000 cmd
+
+
