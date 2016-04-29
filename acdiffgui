@@ -10,6 +10,9 @@ echo "AGRG6" $6
 echo "AGRG7" $7
 echo "AGRG8" $8
 echo "AGRG9" $9
+echo "AGRG10" $10
+echo "AGRG11" $11
+echo "AGRG12" $12
 #open /Applications/AccuRev/bin/acdiffgui.app --args $1 $2 $3 $4 $5 $6 $7 $8 $9
 
 cp $5 /tmp
