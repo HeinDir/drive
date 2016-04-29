@@ -289,13 +289,68 @@ open MacBag/Debug/Pro\ Tools.app && sleep 0.2 && tail -f `ls -d -1 -rt MacBag/De
 
 //=========================================================================================
 
-find author PtSess_BinSelection.cpp
-investigate UProToolsDoc.main4.cpp -> TProToolsDoc::FindOfflineMedia (line 4638)
-find author and fix UTriggerSeparate.cpp
+Ted Barram: 
+does anyone know where the accurev prefs are stored? I need to delete them
+the gui prefs
+/Users/tbarram/.accurev/preferences.xml
+notice the "." before accurev, making it impossible to find :- )
 
-if have time fix UPlayListCommand.cpp
+//=========================================================================================
 
-investigate UFreezeTracks.cpp
-investigate UpdateFreezeRenderings
+David Sumich: Can someone remind me where the PtSess_XChg::Translate happens on the upload side?
+Dave Oppenheim: There are two.  One is to a PtSess_Cache, actually to a PTCC_XchgForPost; and the second is to a file, in PTCC_TrackTransaction::WriteSessionFile.
 
-fix UATimeView.cpp : 4723 (eViewAction_AlterFadeIn) as done in eViewAction_FadeIn (line 4680)
+David Sumich: So writing to the cache is the first?
+Dave Oppenheim: PTCC_TrackTransaction::StartPublish
+
+PtSess_XChg::TranslationOptions PTCC_TrackTransaction::GetTranslationOpts
+
+//=========================================================================================
+
+[1/9/16, 12:51:45 AM] Josh McManus: vpn.avid.com
+[1/9/16, 12:52:09 AM] Josh McManus: go there and log in and it will give you the latest compatible VPN client
+
+//==========================================================================================
+[1/8/16, 10:58:23 PM] Cedric Godbout: Kibana says this is only today 
+http://upstream-kibana.devops-int.avid.com/app/kibana#/discover?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:now-7d,mode:quick,to:now))&_a=(columns:!(_source),index:'logstash-*',interval:auto,query:(query_string:(analyze_wildcard:!t,query:'%22Transport%20Server%20is%20unreachable%22')),sort:!('@timestamp',desc))
+[1/8/16, 10:58:29 PM] Cedric Godbout: uh what an ugly url
+[1/8/16, 10:58:57 PM] Ted Barram: ok
+[1/8/16, 10:59:21 PM] Cedric Godbout: u: kibana
+p: Avid123
+
+for anyone who's curious and want to browse logs
+//===========================================================================================
+
+Looking at Dave Tyler's dlogs (thanks Kenley!) and there are lines like "31051065805,0160b,0f09: 2016-01-08 17:12:51.050 subscription status: SyncError, project save state: 5"
+5 is eProjectSaveState_Downloaded, implying it was previously downloaded.  Maybe there was another version uploaded to another machine, otherwise it shouldn't have bothered.  Or maybe he cleared the cache the wrong way (i.e. not using the dashboard menu command.)
+
+//=============================================================================================
+
+Yuriy Shevyrov
+
+if somebody if blocked by inability to log-in to upstream there is a subtle way
+take a browser, open
+https://static-upstream31.us-east-1.devops-int.avid.com/static/apps/platform-client/
+(substiture upstream number)
+select Direct Login,
+enter any name
+erase what presents in UUID field
+you will be able to log-in now.
+open in the same browser (in a neighbour tab) current token link
+https://api-upstream31.us-east-1.devops-int.avid.com/auth/tokens/current
+for our case
+take accessToken field
+now
+open DigiOptionsFile.txt
+add the folowing:
+UseDirectLogin 1
+AccessToken <put here value from accessToken  which you just got>
+launch PT, enjoy!
+
+//=============================================================================================
+
+what’s the command for ssh’ing into u26?
+
+ssh avid-user@upstream26.devops-int.avid.com -i /Users/tbarram/Downloads/sandbox.pem
+
+//=============================================================================================
