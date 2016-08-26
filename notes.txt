@@ -455,23 +455,21 @@ password: etsets
 
 //========================================================================================
 
+- Anyone want to remind me how to use Sys_PerfTimer?
+- Use the SYS_STPERFTIMER macro and you are done
+- it sets up a stack-based instance that starts and stops as the scope is entered and left
+- so it will time the scope of whervrer you put the macro
+- how do I see the results?
+- then use the debug window
+- Sys_DumpPerfTimer <timer name>
 
-PTC_N10n_OnNetworkAlive -- response came when we offline
+//========================================================================================
 
-PTC_N10n_OnOffline -- sudden network error
-
-PTC_N10n_OnConnectionLost -- when logging flag changes , mostly UI msg
-PTC_N10n_OnConnectionResumed -- when logging flag changes , mostly UI msg
-
-Sys_Network_N10n_Online - generated in Sys_NetworkNotifier and triggered only in TTrack
-Sys_Network_N10n_Offline - generated in Sys_NetworkNotifier triggers OnSuddenOffline, Track UI and sNetworkOffline of PTW_CloudUtils
-
-const char * cNotificationServiceOfflineEvent = "protools.notificationservice.offline.event"; // L10N_IGNORE_LINE
-
-static const char * cNotificationServiceOfflineEvent ; //VM: as opposed to Ready event
+ 
+https://avid-ondemand.atlassian.net/secure/attachment/100610/100610_avid-features.sh
 
 
-0x020000 shift
-0x080000 alt
-0x040000 control
-0x100000 cmd
+0 1 1 2 3 5 8 13 21 34 55 
+
+sUseADSStatusString
+sRelexSSLVerification
