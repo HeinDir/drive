@@ -473,3 +473,6 @@ https://avid-ondemand.atlassian.net/secure/attachment/100610/100610_avid-feature
 
 sUseADSStatusString
 sRelexSSLVerification
+
+
+pass=Avid123 openssl enc -pass env:pass -aes-256-cbc -base64 -e -in "FadeManipulationMode.ftf" -out "FadeManipulationMode.ftf_"
