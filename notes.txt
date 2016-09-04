@@ -476,3 +476,16 @@ sRelexSSLVerification
 
 
 pass=Avid123 openssl enc -pass env:pass -aes-256-cbc -base64 -e -in "FadeManipulationMode.ftf" -out "FadeManipulationMode.ftf_"
+
+TSoundTrack::InstantiateElastic()
+CRegionInstance::HasEffectiveElasticControlData
+CSetTimeFormatCommand::PerformEdit
+StFicAudioPlayListSet::AddToCache
+StFicAudioPlayListSet::ProcessAll()
+TCommitTracks::DoIt(void)
+TCommitTracks::FinalizeCommitedTracks(void)
+TSoundTrack::InstantiateElastic()
+TSoundTrack::SetElasticState
+CFicAudioPlayList::AddFlatElement
+CRegion::CRegion()
+CRegion::InitElasticInfo
