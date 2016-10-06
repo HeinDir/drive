@@ -81,3 +81,18 @@ Windows Server 2016 Technical Preview 5 6XBNX-4JQGW-QX6QG-74P76-72V67 Static  MF
 Windows Services for UNIX 2.0 TCJC7-H2QDH-3T7G7-R6RTM-YRK3Y Static  
 Windows XP Embedded JX4Q2-PHJ7Y-VMRG6-CR6FY-F973Y Static  
 Windows XP Embedded Service Pack JX4Q2-PHJ7Y-VMRG6-CR6FY-F973Y Static  
+Visual Studio Professional 2015  2PMWR-HYN43-GWRBT-DXHXC-HH62C Retail
+Windows 10 (Multiple Editions) 
+	Windows 10 Pro YJ3N3-WPGFT-PBCPG-9YBD8-9TPKG Retail
+	Windows 10 Home 3DHX8-N2M9R-J9Q7X-9VYQB-CWF7H Retail
+	Windows 10 Pro W2CCN-VYFJ3-BWCF6-VDC49-RM49M Multiple Activation
+Windows 10 Enterprise 2015 LTSB YNXRX-PJ8PV-DGXYH-C8TKY-HT9TB Multiple Activation
+Windows 10 Enterprise 2015 LTSB KN 4B4W2-FN33G-T9847-F6MG6-8TYPX Multiple Activation
+Windows 10 Enterprise 2015 LTSB N 4B4W2-FN33G-T9847-F6MG6-8TYPX Multiple Activation
+Windows 10 Enterprise 2016 LTSB T9NVT-HG3QH-FTQT4-KXKD2-Q3XR3 Multiple Activation
+Windows 10 Enterprise 2016 LTSB N VMNR4-7DJXJ-PTTRD-P7RDM-7MJWR Multiple Activation
+Windows 10 Enterprise KN WMD4Y-XXNKK-CQQRJ-X7T83-M7V2T
+Windows 10 Enterprise N WMD4Y-XXNKK-CQQRJ-X7T83-M7V2T Multiple Activation
+Windows 10 KN (Multiple Editions)
+	Windows 10 Pro N and KN CYPR9-9NV2V-JYXDQ-HRP7X-M98XY Multiple Activation
+	
